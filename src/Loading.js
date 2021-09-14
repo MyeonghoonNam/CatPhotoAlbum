@@ -7,6 +7,7 @@ export default function Loading({ target }) {
   this.state = false;
 
   this.setState = (nextState) => {
+    // 현재 상태와 다음 상태에 대하여 차이를 비교 후 렌더링 필요한 경우만 렌더링
     if (this.state !== nextState) {
       this.state = nextState;
       this.render();

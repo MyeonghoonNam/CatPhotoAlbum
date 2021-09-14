@@ -15,6 +15,7 @@ export default function App({ target }) {
   };
 
   this.setState = (nextState) => {
+    // App에서 중앙제어 형태로 각 컴포넌트의 상태를 다루므로 이곳에서 다음 상태의 정합성을 검사하돍 구현하였습니다.
     validateState(nextState);
 
     this.state = nextState;

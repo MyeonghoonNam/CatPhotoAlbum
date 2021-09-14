@@ -7,6 +7,7 @@ export default function ImageViewer({ target, initialState, onClose }) {
   this.state = initialState;
 
   this.setState = (nextState) => {
+    // 현재 상태와 다음 상태에 대하여 차이를 비교 후 렌더링 필요한 경우만 렌더링
     if (this.state.selectedImageUrl !== nextState.selectedImageUrl) {
       this.state = nextState;
       this.render();
