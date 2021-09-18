@@ -1,14 +1,13 @@
 export const validateState = (state) => {
+  const { isRoot, isLoading, nodes, paths, selectedImageUrl } = state;
   try {
-    const { isRoot, isLoading, nodes, paths, selectedImageUrl } = state;
-
     validateIsBoolean(isRoot);
     validateIsBoolean(isLoading);
     validateIsArray(nodes);
     validateIsArray(paths);
     validateIsImageUrl(selectedImageUrl);
   } catch (e) {
-    alert(e.message);
+    throw e;
   }
 };
 

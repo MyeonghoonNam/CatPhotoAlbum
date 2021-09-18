@@ -15,23 +15,27 @@ export default function App({ target }) {
   };
 
   this.setState = (nextState) => {
-    // App에서 중앙제어 형태로 각 컴포넌트의 상태를 다루므로 이곳에서 다음 상태의 정합성을 검사하돍 구현하였습니다.
-    validateState(nextState);
+    try {
+      // App에서 중앙제어 형태로 각 컴포넌트의 상태를 다루므로 이곳에서 다음 상태의 정합성을 검사하돍 구현하였습니다.
+      validateState(nextState);
 
-    this.state = nextState;
+      this.state = nextState;
 
-    nodes.setState({
-      isRoot: this.state.isRoot,
-      nodes: this.state.nodes,
-    });
+      nodes.setState({
+        isRoot: this.state.isRoot,
+        nodes: this.state.nodes,
+      });
 
-    imageViewer.setState({
-      selectedImageUrl: this.state.selectedImageUrl,
-    });
+      imageViewer.setState({
+        selectedImageUrl: this.state.selectedImageUrl,
+      });
 
-    loading.setState(this.state.isLoading);
+      loading.setState(this.state.isLoading);
 
-    breadcrumb.setState(this.state.paths);
+      breadcrumb.setState(this.state.paths);
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   const loading = new Loading({ target });
