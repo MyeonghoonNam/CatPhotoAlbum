@@ -9,12 +9,14 @@ export default function Nodes({ target, initialState, onClick, onPrevClick }) {
   this.setState = (nextState) => {
     // 현재 상태와 다음 상태에 대하여 차이를 비교하기 위해 다음 메소드를 사용하여 비교하여 렌더링 구현
     if (
-      this.state.isRoot !== nextState.isRoot ||
-      JSON.stringify(this.state.nodes) !== JSON.stringify(nextState.nodes)
+      this.state.isRoot === nextState.isRoot &&
+      JSON.stringify(this.state.nodes) === JSON.stringify(nextState.nodes)
     ) {
-      this.state = nextState;
-      this.render();
+      return;
     }
+
+    this.state = nextState;
+    this.render();
   };
 
   this.render = () => {
