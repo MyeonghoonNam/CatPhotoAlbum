@@ -12,17 +12,15 @@ export const validateState = (state) => {
 };
 
 const validateIsBoolean = (value) => {
-  const check = typeof value === 'boolean';
+  const checkIsBoolean = typeof value === 'boolean';
 
-  if (check === false) {
+  if (checkIsBoolean === false) {
     throw new Error('올바른 Boolean 형태가 아닙니다.');
   }
 };
 
 const validateIsArray = (value) => {
-  const check = Array.isArray(value);
-
-  if (check === false) {
+  if (Array.isArray(value)) {
     throw new Error('올바른 Array 형태가 아닙니다.');
   }
 };
@@ -33,10 +31,9 @@ const validateIsImageUrl = (value) => {
     return;
   }
 
-  const regex = /^(http|https):(.*?)\.(jpg|jpeg|png|gif|bmp|pdf)$/;
-  const check = regex.test(value);
+  const validImageUrlRegex = /^(http|https):(.*?)\.(jpg|jpeg|png|gif|bmp|pdf)$/;
 
-  if (check === false) {
+  if (validImageUrlRegex.test(value) === false) {
     throw new Error('올바른 ImageUrl 형태가 아닙니다.');
   }
 };
