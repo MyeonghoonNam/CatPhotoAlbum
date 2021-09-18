@@ -20,7 +20,7 @@ const validateIsBoolean = (value) => {
 };
 
 const validateIsArray = (value) => {
-  if (Array.isArray(value)) {
+  if (!Array.isArray(value)) {
     throw new Error('올바른 Array 형태가 아닙니다.');
   }
 };
