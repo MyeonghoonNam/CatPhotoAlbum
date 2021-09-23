@@ -20,7 +20,3 @@
 <p align="center">
 	<img src="https://user-images.githubusercontent.com/57757719/133134965-65b99616-3b5c-4d4e-a723-6dc0fab022da.gif" width="50%"/>
 </p>
-
-<br />
-
-## ✅ PR 포인트 & 궁금한 점
